@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    config.xml  -  CONFIGURACIÓN DEL PROYECTO (se lee con config/Config.php)
+    Aquí cambias textos, colores, imágenes, acceso y la fuente de datos
+    sin tocar el código PHP.
+    El administrador también modifica el encabezado desde Configuración.
+-->
+<config>
+
+    <!-- Textos y colores del encabezado (app/views/header.php) -->
+    <pagina>
+        <titulo_pestana>PCAM</titulo_pestana>
+        <titulo1 color="#00664f">Gerencia Regional de Transmisión Central</titulo1>
+        <titulo2 color="#558d18">Zona de Operación de Transmisión Guerrero Morelos</titulo2>
+        <titulo3 color="#111111">PCAM</titulo3>
+    </pagina>
+
+    <!-- Imágenes (relativas a public/, se convierten en URL absoluta con URL_BASE) -->
+    <imagenes>
+        <logo_izquierdo>img/gobierno_mexico.png</logo_izquierdo>
+        <logo_derecho>img/zotgm.png</logo_derecho>
+        <!-- Logo del sistema: arriba a la izquierda del navbar lateral -->
+        <logo_sistema>img/logo_sistema.png</logo_sistema>
+        <imagen_login>img/usuariocfe.png</imagen_login>
+        <imagen_fondo>img/fondocfe.png</imagen_fondo>
+    </imagenes>
+
+    <!-- Acceso -->
+    <acceso>
+        <!-- 1 = privado (se oculta "Entrar como invitado"), 0 = permite invitados -->
+        <contenedor_privado>0</contenedor_privado>
+    </acceso>
+
+    <!--
+        API REST MVC de prueba instalada en la VM.
+        La PCAM llama por GET a los tres recursos de la API:
+        subestaciones, analogicas y digitales.
+
+        autenticacion: none | basic | bearer | windows
+        Las credenciales también pueden venir de PCAM_OSI_USUARIO,
+        PCAM_OSI_PASSWORD y PCAM_OSI_TOKEN del entorno de Apache/PHP.
+    -->
+    <datos_api>
+        <habilitado>1</habilitado>
+        <base_url>https://192.168.1.41</base_url>
+        <endpoint>/api-pcam-demo/public/index.php</endpoint>
+        <endpoint_analogicas></endpoint_analogicas>
+        <endpoint_status></endpoint_status>
+        <autenticacion>none</autenticacion>
+        <usuario></usuario>
+        <password></password>
+        <token></token>
+        <timeout_conexion>5</timeout_conexion>
+        <timeout>15</timeout>
+        <verificar_tls>0</verificar_tls>
+    </datos_api>
+
+    <!--
+        SMTP legado para enviar reportes a Gmail (ya no aparece en la barra)
+        Gmail pide:
+          - host: smtp.gmail.com
+          - puerto 587 con seguridad "tls"  (o puerto 465 con "ssl")
+          - usuario: tu cuenta de Gmail completa
+          - password: una "Contraseña de aplicación" de 16 letras
+            (Cuenta de Google > Seguridad > Verificación en dos pasos > Contraseñas de aplicaciones).
+            La contraseña normal de Gmail NO funciona.
+    -->
+    <smtp>
+        <host>smtp.gmail.com</host>
+        <puerto>587</puerto>
+        <seguridad>tls</seguridad>
+        <usuario>tucorreo@gmail.com</usuario>
+        <password>xxxx xxxx xxxx xxxx</password>
+        <remitente_nombre>PCAM Reportes</remitente_nombre>
+        <!-- A quién le llegan los reportes -->
+        <destinatario>tucorreo@gmail.com</destinatario>
+    </smtp>
+
+</config>

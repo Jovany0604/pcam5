@@ -1,0 +1,11 @@
+# .htaccess de la raíz del proyecto
+# 1. Quien entre a /pcam/ se va a /pcam/public/ (donde está index.php).
+# 2. Bloquea abrir desde el navegador app/, config/ y database/
+#    (todo se pide a través de public/index.php).
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(app|config|database)(/|$) - [F,L]
+    RewriteRule ^$ public/ [L]
+</IfModule>

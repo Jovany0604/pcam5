@@ -1,0 +1,31 @@
+{
+  "analogicas": [
+    {
+      "id": 1,
+      "codigo": "CUE",
+      "estacion": "Cuernavaca",
+      "clave": "CUE_MW",
+      "tipo": "T_ANLG",
+      "nombre": "Potencia activa",
+      "unidad": "MW",
+      "valor": 12.34,
+      "etiquetado": false,
+      "limite": false,
+      "calidad": 1
+    }
+  ],
+  "status": [
+    {
+      "id": 2,
+      "codigo": "CUE",
+      "estacion": "Cuernavaca",
+      "clave": "CUE_52A",
+      "tipo": "T_IND",
+      "nombre": "Interruptor principal",
+      "estado": "CERRADO",
+      "etiquetado": false,
+      "limite": false,
+      "calidad": 1
+    }
+  ]
+}
